@@ -4,6 +4,7 @@
   Array                       Quick insertion,                Slow search, slow deletion,
                               very fast access if             fixed size.
                               index known.
-
+----------------------------------------------------------------------------------------------------
   Ordered Array               Quicker search than             Slow insertion and deletion,
                               unsorted array.                 fixed size|
+----------------------------------------------------------------------------------------------------
