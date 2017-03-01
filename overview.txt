@@ -1,0 +1,8 @@
++---------------------------------------------------------------------------------------
+Data Structure              Advantages                  Disadvantage
++---------------------------------------------------------------------------------------
+Array                       Quick insertion,            Slow search, slow deletion,
+                            very fast access if         fixed size
+                            index known
+                            
+Ordered Array               
