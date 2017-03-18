@@ -2,7 +2,7 @@
 Map Implementation: HashSet
 +-----------------------------------------------------------------------------------
 
---> Implements Map interface.
+--> Implements Map interface and does not ensure any ordering.
 --> Represents <key, value> structure i.e. an associative array.
 --> Internally uses HashTable.
 --> Allows null key & value.
