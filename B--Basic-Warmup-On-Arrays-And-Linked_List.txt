@@ -1,0 +1,76 @@
+// LINK: http://bigocheatsheet.com/
+
+A list represents a collection of items such as integers or objects.
+
+The size of a list is its length, that is, the number of items it holds.
+
+When size = 0, list is empty.
+
+Operations we might be interested to perform on a list are:
+
+insert()       Inserts an item in the list.
+remove()       Removes an item from the list.
+find()         Returns the index of the first occurrence of an item.
+findAt()       Returns the element at the specified index.
+next()         Given an index, returns the next element.
+previous()     Given an index, return the previous element.
+printList()    Prints the list items.
+makeEmpty()    Destroys list items.
+
+We can implement a list ADT using an array or a linked list.
+
+
+=====================================================================================
+
+It is important to note following points about an array data structure:
+
+The best case for insert() and delete() operation is O(1).
+The worst case for insert() and delete() operation is O(n).
+Finding an item at the specified index takes O(1) otherwise O(n).
+Insertion and deletion at the high end of an array represents best case.
+Insertion and deletion at the front end of an array represents worst case.
+If insertion and deletion is restricted only at the high end, an array is fine for
+such list otherwise expensive.
+An array is a fixed size data structure.
+
+An array represents a good implementation of a list under following circumstances:
+
+inert() and delete() is restricted at the high end only
+only findAt() is allowed
+size of an array is fixed
+
+Note: Multidimensional arrays are implemented as linear arrays of linear arrays.
+
+Remember: 
+
+1) The linear cost of insertion and deletion is O(n).
+2) Array lookup by index is O(1), by value is O(n).
+3) Arrays are not dynamic data structures, they do not resize dynamically.
+
+=====================================================================================
+
+It is designed to optimize insertion and deletion but slow at indexing and searching.
+
+Linked list is a data representation that tries to avoid linear cost of insertion
+and deletion by not storing list items contiguously.
+
+This, unlike array, does not require shitfing entire portions of the list for insertion
+and deletion.
+
+Linked list has variations like singly, doubly, and circularly linked list.
+
+They are a series of node that point to other nodes.
+
+The most basic node representation stores the data and a reference to another node.
+
+In a singly linked list, a node stores the data and the next node reference.
+
+In a doubly linked list, a node stores the data and references to both the previous and
+the next node.
+
+In a circularly linked list, the tail of the list points to its head.
+
+The cost of access and search operation is O(n) while insertion and deletion is O(1).
+
+=====================================================================================
+

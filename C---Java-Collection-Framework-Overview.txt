@@ -1,0 +1,77 @@
+--> A collection is basically a container used to store and manipulate a group of objects.
+--> Java defines collection framework's interfaces and implementations in java.util package.
+
+
++--------------------------------------------------------------------------------------------
+Overview of Core Collection Interface Heirarchy
++--------------------------------------------------------------------------------------------
+
+--- <<interface>> Collection
+---------- <<interface>> Set
+---------- <<interface>> List
+---------- <<interface>> Queue
+
+--- <<interface>> Map
+
+---------------------------------------------------------------------------------------------
+
+--> Collection is the root interface with abstract declarations for methods like add(), remove(),
+    contains(), size(), addAll(), removeAll(), retainAll(), containsAll(), clear() etc.
+
+--> Set interface models an unordered collection whithout any duplicates. Two sets are considered
+    equal only when they contain the same elements.
+
+--> List models an ordered collection and may contain duplicates. It is considered a dynamic array
+    with indexed based element access.
+
+--> Queue interface models FIFO and LIFO structures.
+
+--> Map interface models key-value pairs. The keys must be unique and must map to atmost one value.
+    Some of its implementations guarantee element ordering.
+
+--> Note that all collection implementations provide atleast two constructors: no-argument constructor
+    and one that takes a collection argument.
+
+--> Set Implementations: HashSet, LinkedHashSet, EnumSet, TreeSet
+
+--> List Implementations: ArrayList, LinkedList, Vector (depreacated)
+
+--> Queue Implementations: LinkedList, PriorityQueue
+
+--> Map Implementations: HashMap, HashTable, LinkedHashMap, TreeMap
+
+
++---------------------------------------------------------------------------------------------
+Big-O Summary For Collection Framework Implementations
++---------------------------------------------------------------------------------------------
+
+
+______________________________________________________________________________
+List                 | add  | remove | get  | contains | next | data structure
+---------------------|------|--------|------|----------|------|---------------
+ArrayList            | O(1) |  O(n)  | O(1) |   O(n)   | O(1) | Array
+LinkedList           | O(1) |  O(1)  | O(n) |   O(n)   | O(1) | Linked List
+
+
+
+___________________________________________________________________________________________________
+Set                   |    add   |  remove  | contains |   next   | size | data structure
+----------------------|----------|----------|----------|----------|------|-------------------------
+HashSet               | O(1)     | O(1)     | O(1)     | O(h/n)   | O(1) | Hash Table
+LinkedHashSet         | O(1)     | O(1)     | O(1)     | O(1)     | O(1) | Hash Table + Linked List
+TreeSet               | O(log n) | O(log n) | O(log n) | O(log n) | O(1) | Red-black tree
+
+
+_____________________________________________________________________________________
+Queue                   |  offer   | peak |   poll   | remove | size | data structure
+------------------------|----------|------|----------|--------|------|---------------
+PriorityQueue           | O(log n) | O(1) | O(log n) |  O(n)  | O(1) | Priority Heap
+LinkedList              | O(1)     | O(1) | O(1)     |  O(1)  | O(1) | Array
+
+
+____________________________________________________________________________________
+Map                   |   get    | containsKey |   next   | data structure
+----------------------|----------|-------------|----------|-------------------------
+HashMap               | O(1)     |   O(1)      | O(h/n)   | Hash Table
+LinkedHashMap         | O(1)     |   O(1)      | O(1)     | Hash Table + Linked List
+TreeMap               | O(log n) |   O(log n)  | O(log n) | Red-black tree
