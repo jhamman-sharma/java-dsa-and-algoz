@@ -69,7 +69,7 @@ NOTE
 Map Implementation: TreeMap
 +-----------------------------------------------------------------------------------
 
---> It red-black tree implementation of SortedMap which is a sub interface of Map 
+--> It is a red-black tree implementation of SortedMap which is a sub interface of Map 
     interface.
 --> Provides sorted order mapping, note, provides sorted order mapping and not the
     order in which the insertions were done. This is what a tree does, remember?
