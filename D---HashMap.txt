@@ -56,5 +56,9 @@ NOTE
        Map syncMap = Collections.synchronizedMap(new HashMap());
 --> java.concurrent.ConcurrentHashMap provides a thread safe hash map implementation which
     is much better performance than a synchronized map instance in terms of scalability and
-    performance. 
+    performance.
 --> Prefer java.concurrent.ConcurrentHashMap only in a multi-threaded environment.
+--> If predicatble iteration order is required, use LinkedHashMap.
+--> LinkedHashMap extends HashMap and internally uses a doubly linked list and hash table.
+--> To get a thread safe instance of LinkedHashMap, do as follow:
+        Map threadSafeMap = Collections.synchronizedMap(new LinkedHashMap());
