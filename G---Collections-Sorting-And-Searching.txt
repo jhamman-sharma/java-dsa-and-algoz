@@ -1,0 +1,141 @@
++-----------------------------------------------------------------------------------
+Collections.sort()
++-----------------------------------------------------------------------------------
+
+--> Pass it an instance of List for sorting elements in the natural order.
+
+        List l = new ArrayList(Arrays.asList(10, 9, 13, 8, 7));
+        Collections.sort(l);
+        System.out.println(l); // 7,8,9,10,13
+
+
+--> For custom sort, pass it an instance of a list and a Comparator.
+
+        // define Comparator
+        class IntegerComparator implements Comparator {
+            public int compare(Object i1, Object i2) {
+                return (Integer) i2 - (Integer) i1);
+            }
+        }
+
+        // in usage
+        List l = new ArrayList(Arrays.asList(10, 9, 13, 8, 7));
+        Collections.sort(l, new ItegerComparator());
+        System.out.println(l); // 13,10,9,8,7
+
+
+--> We can also use an anonymous comparator:
+
+        List l = new ArrayList(Arrays.asList(10, 9, 13, 8, 7));
+        Collections.sort(l, new Comparator() {
+            public int compare(Object i1, Object i2) {
+                return (Integer) i2 - (Integer) i1;
+            }
+        });
+        System.out.println(l); // 13,10,9,8,7
+
+
++-----------------------------------------------------------------------------------
+Collections.shuffle()
++-----------------------------------------------------------------------------------
+
+--> Pass it an instance of list:
+
+    List l = new ArrayList(Arrays.asList(10, 9, 13, 8, 7));
+    Collections.shuffle(l);
+    System.out.println(l);
+
+--> We can explicitly specify the source of randomness  by passing an instance of
+    Random class:
+
+    List l = new ArrayList(Arrays.asList(10, 9, 13, 8, 7));
+    Collections.shuffle(l, new Random());
+    System.out.println(l);
+
+
+
++-----------------------------------------------------------------------------------
+Collections.reverse()
++-----------------------------------------------------------------------------------
+
+--> Reverses the current order of elements in a list:
+
+        Collections.reverse(listInstance);
+        
+
++-----------------------------------------------------------------------------------
+Collections.swap()
++-----------------------------------------------------------------------------------
+
+--> Swaps elements of two specified positions:
+
+        Collections.swap(listInstance, pos1, pos2);
+        
+        
++-----------------------------------------------------------------------------------
+Collections.copy()
++-----------------------------------------------------------------------------------
+
+--> Copies elements of one list into another. Note that the size of source list must
+    be atleast equal to the size of destination list.
+    
+        Collections.copy(sourceList, destinationList);
+        
+
++-----------------------------------------------------------------------------------
+Collections.fill()
++-----------------------------------------------------------------------------------
+
+--> It fills all the elements of a list with a value.
+
+        Collections.fill(listInstance, 0);
+        
+
++-----------------------------------------------------------------------------------
+Collections.addAll()
++-----------------------------------------------------------------------------------
+
+--> Adds provided values in a given list.
+
+        Collections.addAll(listInstance, 12, 13, 14);
+        
+        
++-----------------------------------------------------------------------------------
+Collections.binarySearch()
++-----------------------------------------------------------------------------------
+
+--> Searches in a sorted list and returns the position. If not found, returns a value
+    by calculating (-(insertion point) - 1). Insertion point is the position where the
+    value would have been inserted.
+
+        List l = new ArrayList(Arrays.asList(4,3,6,2,7,1));
+        Collections.sort(l); // this is required for binary search
+        System.out.println(6); // 4
+        System.out.println(0); // -(0) - 1 => -1
+        
+
++-----------------------------------------------------------------------------------
+Collections.max()
++-----------------------------------------------------------------------------------
+
+--> Finds the maximum value in a list:
+
+        int max = (int) Collections.max(listInstance);
+
+
++-----------------------------------------------------------------------------------
+Collections.min()
++-----------------------------------------------------------------------------------
+
+--> Finds the minimum value in a list:
+
+        int min = (int) Collections.min(listInstance);
+
+
++-----------------------------------------------------------------------------------
+Collections.frequency()
++-----------------------------------------------------------------------------------
+
+--> Returns the frequency of an element in the specified collection:
+
+        int freq = Collections.frequency(list, 2);
