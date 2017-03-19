@@ -1,5 +1,5 @@
 +-----------------------------------------------------------------------------------
-Map Implementation: HashSet
+Map Implementation: HashMap
 +-----------------------------------------------------------------------------------
 
 --> Implements Map interface and does not ensure any ordering.
