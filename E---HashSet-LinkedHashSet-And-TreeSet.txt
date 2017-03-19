@@ -1,0 +1,39 @@
++-----------------------------------------------------------------------------------
+Set Implementation: HashSet
++-----------------------------------------------------------------------------------
+
+--> Does not gurantee predictable insertion and iteration orders.
+--> Allows null element.
+--> Internally uses HashMap.
+--> Offers contant time performance for add(), remove(), contains(), size().
+--> The implementation is non-thread safe, so you may do this if required:
+        HashSet set = Collections.synchronizedSet(new HashSet());
+--> Provides toArray() method that return an array of all items in the collection:
+        Set s = new HashSet(Arrays.asList(0,1,2,3));
+        Object[] setArray = s.toArray();
+--> Also provides methods to perform set operations such as union, intersection, set
+    difference etc via methods addAll(), retainAll() etc.
+
+
++-----------------------------------------------------------------------------------
+Set Implementation: LinkedHashSet
++-----------------------------------------------------------------------------------
+
+--> LinkedHashSet extends HashSet and provides predicatable insertion and iteration
+    order.
+--> Internally uses linked list and hash table.
+--> it is slightly less performant than HashSet.
+--> Like HashSet, it is non-thread safe, if required, do follow:
+        Set sync = Collections.synchronizedSet(new LinkedHashSet());
+
+
+
++-----------------------------------------------------------------------------------
+Set Implementation: TreeSet
++-----------------------------------------------------------------------------------
+
+--> Implements SortedSet which is a sub interface of Set interface.
+--> Provides a sorted collection according to natural keys.
+--> For custom ordering, a Comparator may be provided.
+--> This implementation is not synchronized, if required, do following:
+        SortedSet sync = Collections.synchronizedSet(new TreeSet(Arrays.asList(1,2,3)));
