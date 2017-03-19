@@ -1,0 +1,90 @@
++-----------------------------------------------------------------------------------
+Map Implementation: HashSet
++-----------------------------------------------------------------------------------
+
+--> Implements Map interface and does not ensure any ordering.
+--> Represents <key, value> structure i.e. an associative array.
+--> Internally uses HashTable.
+--> Allows null key & value.
+--> Provides constant time performance for add(), remove(), contains() & size().
+--> Each HashMap objects has two parameters: capacity & load factor.
+--> For faster iteration, capacity should not be very high, that is, load factor should
+    not be very small.
+--> The HashMap constructor is overloaded:
+        Map defaultMap = new HashMap(); // capacity: 16, load-factor: 0.75
+        Map withCapacity = new HashMap(10);
+        Map withCapacityAndLoadFactor = new HashMap(10, 1);
+        Map builtWithExistingMap = new HashMap(defaultMap);
+--> This is also fine:
+        HashMap<Character, Integer> map = new HashMap();
+--> Puts a map: map.put('c', "Cat");
+--> Gets a map by key: map.get('c');
+--> Returns a set of all keys: Set s = map.keySet();
+--> Returns a collection of all values: Collection v = map.values();
+--> returns a set of Map.Entry objects:
+    Set entries = map.entrySet();
+--> Removes a mapping: map.remove('c');
+--> Removes all mappings: map.clear(); // empties the map
+--> Iterate map by keys:
+        Set keys = map.keySet();
+        for(Object k : keys) System.out.println(map.get(k));
+--> Iterate map by values:
+        Collection values = map.values();
+        for(Object v : values) System.out.println(v);
+--> Iterate map by entries:
+        Set entries = map.entrySet();
+        for(Object entry : entries) {
+            Map.Entry e = (Map.Entry) entry;
+            System.out.println("Key: " + e.getKey() + ", Value: " + e.getValue());
+        }
+
+
++-----------------------------------------------------------------------------------
+Difference between HashMap & HashTable
++-----------------------------------------------------------------------------------
+
+--> HashTable is thread-safe while HashMap is not.
+--> In a single-threaded environment, HashMap is more performant than HashTable.
+
+
++-----------------------------------------------------------------------------------
+NOTE
++-----------------------------------------------------------------------------------
+
+--> Capacity is the number of buckets in the hash table.
+--> In multi-threaded environment, we can obtain synchronized version of map as follow:
+       Map syncMap = Collections.synchronizedMap(new HashMap());
+--> java.concurrent.ConcurrentHashMap provides a thread safe hash map implementation which
+    is much better performance than a synchronized map instance in terms of scalability and
+    performance.
+--> Prefer java.concurrent.ConcurrentHashMap only in a multi-threaded environment.
+--> If predicatble iteration order is required, use LinkedHashMap.
+--> LinkedHashMap extends HashMap and internally uses a doubly linked list and hash table.
+--> To get a thread safe instance of LinkedHashMap, do as follow:
+        Map threadSafeMap = Collections.synchronizedMap(new LinkedHashMap());
+
+
+
++-----------------------------------------------------------------------------------
+Map Implementation: TreeMap
++-----------------------------------------------------------------------------------
+
+--> It red-black tree implementation of SortedMap which is a sub interface of Map 
+    interface.
+--> Provides sorted order mapping, note, provides sorted order mapping and not the
+    order in which the insertions were done. This is what a tree does, remember?
+--> We can set the ordering ppreference at the time of construction of tree map by
+    a Comparator..
+--> It takes log(n) time for get(), put(), contains(), and size().
+--> We can also provide it an ordinary unsorted map:
+        Map hash = new HashMap();
+        hash.put('c', "CAT");
+        hash.put('a', "APPLE");
+
+        SortedMap tree = new TreeMap(hash);
+        Set keys = tree.keySet();
+        for(Object k : keys) {
+            System.out.println("Key: " + tree.get(k));
+        }
+--> Note that this implementation is not synchronized. To get a synchronized instance:
+        SortedMap m = Collections.synchronizedSortedMap(new TreeMap(...));
