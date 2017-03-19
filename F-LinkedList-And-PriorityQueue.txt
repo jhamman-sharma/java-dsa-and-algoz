@@ -1,0 +1,80 @@
++-----------------------------------------------------------------------------------
+A Note on <<interface>> Queue
++-----------------------------------------------------------------------------------
+
+--> This interface represents an ordered collection of elements.
+--> A queue is basically a FIFO structure but its implementations can order elements 
+    in LIFO, and priority basis.
+--> Stack is a LIFO implementation.
+--> The implementation PriorityQueue orders elements on a priority basis.
+--> This interface provides two types of implementations for insertion, deletion, and
+    inspection operations:
+        --- one that throws exception if the operation fails,
+        --- another returns a special value such as null or false, depending on the
+            type of operation.
+--> Methods that throw exception are: add(), remove(), and element().
+--> Methods that return special value: offer(), poll(), peek().
+
+
+
++-----------------------------------------------------------------------------------
+Queue Implementation: LinkedList
++-----------------------------------------------------------------------------------
+
+--> Creates a FIFO structure.
+--> Implements both List & Deque interface. Deque implements Queue interface.
+--> We can instantiate it with no arguments or with a specified collection:
+        Queue q1 = new LinkedList(); // empty queue
+        Queue q2 = new Linkedlist(Arrays.asList(1,2,3,4,5));
+--> Insertion takes place at the rear end using either add() or offer() method. The
+    later is more preferable because it return true/false for success and failure
+    situations.
+--> To iterate a LinkedList instance:
+        Queue q = new LinkedList(1,2,3,4,5,6);
+
+        for(Object o : q) {
+            System.out.println(o + "");
+        }
+--> We can use an interator also:
+        Queue q = new LinkedList(1,2,3,4,5,6);
+        Iterator i = q.iterator();
+
+        while(i.hasnext()) {
+            System.out.println(i.next() + " ");
+        }
+--> Deletion is done at the front end. You can use either remove() or poll() method:
+        q.remove();
+        q.poll();
+--> You can get the head element without its removal from the queue using element() or peek():
+        Object o1 = q.element();
+        Object o2 = q.peek();
+
+
+
++-----------------------------------------------------------------------------------
+LIFO Ordered Queue
++-----------------------------------------------------------------------------------
+
+--> We can create a stack structure using the same LinkedList implementation as below:
+        Queue lifoStack = Collections.asLifoQueue(new LinkedList());
+        
+        
++-----------------------------------------------------------------------------------
+Queue Implementation: PriorityQueue
++-----------------------------------------------------------------------------------
+
+--> This implementation ensures the element with least prority always sits at the 
+    head (top).
+--> It maintains a priority heap to ensure its behavior.
+--> Following creates an empty PriorityQueue:
+        Queue q = new PriorityQueue();
+--> Following creates a queue and rearranges the heap so that the element with 
+    value 6 sits at the top:
+        Queue q = new priorityQueue(Arrays.asList(10,6,7));
+--> To inspect the head element, use method element() or peek():
+        Queue q = new PriorityQueue();
+        q.add(5);
+        q.add(3);
+        q.add(6);
+        
+        System.out.println(q.peek()); // 3
