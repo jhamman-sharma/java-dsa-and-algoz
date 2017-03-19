@@ -268,3 +268,5 @@ NOTE:
 1) Algorithms that run in constant, logarithmic, linear or superlinear time are preferred.
 2) O(n logn) is called superlinear algorithm.
 3) Ultimately, the asymptotic derivation comes from Calculus: Lim (n -> infinity) [n^2 = infinity]
+
+// LINK: http://bigocheatsheet.com/
